@@ -133,8 +133,8 @@ public class Transformer {
      * @return
      */
     public float[] generateTransformedValuesBubble(IBubbleDataSet data, float phaseY, int from, int to) {
-
-        final int count = (to - from + 1) * 2; // (int) Math.ceil((to - from) * phaseX) * 2;
+        //if count is negative, the app will crash.
+        final int count = (to - from + 1 < 0) ? 0 : (to - from + 1) * 2; // (int) Math.ceil((to - from) * phaseX) * 2;
 
         if (valuePointsForGenerateTransformedValuesBubble.length != count) {
             valuePointsForGenerateTransformedValuesBubble = new float[count];
